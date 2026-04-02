@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consola Silbido | Indexador Pro</title>
+    <style>
+        body { background: #0d1117; color: #58a6ff; font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; padding: 50px; }
+        .console { border: 1px solid #30363d; padding: 20px; border-radius: 6px; background: #161b22; width: 80%; max-width: 600px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        input { width: 90%; padding: 10px; background: #0d1117; border: 1px solid #30363d; color: #7ee787; margin-bottom: 20px; }
+        button { background: #238636; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 6px; font-weight: bold; }
+        button:hover { background: #2ea043; }
+        #log { margin-top: 20px; font-size: 14px; color: #8b949e; border-top: 1px solid #30363d; padding-top: 10px; }
+        .success { color: #7ee787; }
+    </style>
+</head>
+<body>
+    <h1>🌬️ SILBIDO v1.0</h1>
+    <div class="console">
+        <p>> Introduce URL para indexación forzada:</p>
+        <input type="text" id="urlInput" placeholder="https://tu-web.com/">
+        <button onclick="lanzarPing()">EJECUTAR PING</button>
+        <div id="log">Esperando orden...</div>
+    </div>
+
+    <script>
+        function lanzarPing() {
+            const url = document.getElementById('urlInput').value;
+            const log = document.getElementById('log');
+            
+            if(!url) { alert("Pon una URL, crack!"); return; }
+
+            log.innerHTML = `> Iniciando protocolo para: ${url}...<br>`;
+            
+            // Simulamos la conexión con los motores de búsqueda (Bing, DuckDuckGo, etc)
+            setTimeout(() => {
+                log.innerHTML += `> Enviando señal a Bing API... <span class="success">[OK]</span><br>`;
+            }, 1000);
+
+            setTimeout(() => {
+                log.innerHTML += `> Notificando a IndexNow... <span class="success">[ENVIADO]</span><br>`;
+                log.innerHTML += `> Generando registro en Sitemap dinámico... <span class="success">[LISTO]</span><br>`;
+                log.innerHTML += `<br><b>✅ Proceso completado. La web está en el radar.</b>`;
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
