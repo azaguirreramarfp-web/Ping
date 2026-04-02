@@ -6,7 +6,7 @@ on:
       - 'urls.txt' # El robot solo se despierta si cambias la lista de URLs
 
 jobs:
-  run-indexer:
+  martillo-pilon-30:
     runs-on: ubuntu-latest
     steps:
       - name: Descargar codigo
