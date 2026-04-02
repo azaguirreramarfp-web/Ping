@@ -1,0 +1,24 @@
+name: Lanzar Silbido Indexer
+
+on:
+  push:
+    paths:
+      - 'urls.txt' # El robot solo se despierta si cambias la lista de URLs
+
+jobs:
+  run-indexer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v3
+
+      - name: Instalar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Instalar Requests
+        run: pip install requests
+
+      - name: Ejecutar Ping
+        run: python silbido.py
